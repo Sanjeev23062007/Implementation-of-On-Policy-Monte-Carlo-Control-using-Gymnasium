@@ -401,25 +401,79 @@ env.close()
 ## Output
 
 ```text
-Final Q-table:
+Final Q-table - Fixed Epsilon:
+[[0.01  0.018 0.008 0.023]
+ [0.022 0.    0.044 0.043]
+ [0.029 0.114 0.05  0.055]
+ [0.078 0.    0.002 0.001]
+ [0.031 0.03  0.    0.066]
+ [0.    0.    0.    0.   ]
+ [0.    0.408 0.    0.073]
+ [0.    0.    0.    0.   ]
+ [0.052 0.    0.123 0.139]
+ [0.088 0.276 0.304 0.   ]
+ [0.247 0.598 0.    0.161]
+ [0.    0.    0.    0.   ]
+ [0.    0.    0.    0.   ]
+ [0.    0.214 0.61  0.188]
+ [0.248 0.656 1.    0.124]
+ [0.    0.    0.    0.   ]]
+
+Final Q-table - Variable Epsilon:
+[[0.737 0.916 0.654 0.603]
+ [0.685 0.    0.608 0.604]
+ [0.701 0.659 0.584 0.703]
+ [0.59  0.    0.222 0.298]
+ [0.727 0.926 0.    0.731]
+ [0.    0.    0.    0.   ]
+ [0.    0.821 0.    0.712]
+ [0.    0.    0.    0.   ]
+ [0.757 0.    0.97  0.818]
+ [0.883 0.886 0.98  0.   ]
+ [0.893 0.99  0.    0.9  ]
+ [0.    0.    0.    0.   ]
+ [0.    0.    0.    0.   ]
+ [0.    0.923 0.99  0.954]
+ [0.937 0.99  1.    0.979]
+ [0.    0.    0.    0.   ]]
 
 
 
-Estimated State-Value Function:
+Learned Policy - Fixed Epsilon
+[['U' 'R' 'D' 'L']
+ ['U' 'L' 'D' 'L']
+ ['U' 'R' 'D' 'L']
+ ['L' 'R' 'R' 'L']]
 
+Estimated State-Value Function - Fixed Epsilon
+[[0.023 0.044 0.114 0.078]
+ [0.066 0.    0.408 0.   ]
+ [0.139 0.304 0.598 0.   ]
+ [0.    0.61  1.    0.   ]]
 
+Learned Policy - Variable Epsilon
+[['D' 'L' 'U' 'L']
+ ['D' 'L' 'D' 'L']
+ ['R' 'R' 'D' 'L']
+ ['L' 'R' 'R' 'L']]
 
-
-
-
-
-Learned Policy:
-
-
+Estimated State-Value Function - Variable Epsilon
+[[0.916 0.685 0.703 0.59 ]
+ [0.926 0.    0.821 0.   ]
+ [0.97  0.98  0.99  0.   ]
+ [0.    0.99  1.    0.   ]]
 
 
 
 Average reward over last 1000 episodes: 
+Fixed Epsilon (0.9):
+  Average reward (last 1000): 0.0330
+  Success rate (last 1000): 3.30%
+
+Variable Epsilon:
+  Epsilon range: 1.0 -> 0.05
+  Average reward (last 1000): 0.9380
+  Success rate (last 1000): 93.80%
 ```
 
 
