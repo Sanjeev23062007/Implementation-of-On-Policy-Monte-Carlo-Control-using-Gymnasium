@@ -29,7 +29,31 @@ pip install gymnasium numpy matplotlib
 
 ---
 
-## Environment Description
+## ENVIRONMENT DESCRIPTION
+
+The FrozenLake-v1 environment from the Gymnasium library is used for implementing Monte Carlo Control.
+
+1. The environment consists of a 4 × 4 grid containing 16 states.
+
+2. The agent starts at the upper-left corner and must reach the goal at the lower-right corner.
+
+3. The grid contains safe frozen tiles, holes, a starting state, and a goal state.
+
+4. The agent has four possible actions:
+   0 – Left
+   1 – Down
+   2 – Right
+   3 – Up
+
+5. The environment is configured with is_slippery=False, making the movement deterministic.
+
+6. The agent receives a reward of 1 when it reaches the goal and a reward of 0 for other transitions.
+
+7. An episode terminates when the agent reaches the goal or falls into a hole.
+
+8. A maximum of 100 steps is allowed per episode.
+
+9. The environment is used to evaluate First-Visit Monte Carlo Control with fixed epsilon and variable/decaying epsilon exploration strategies.
 
 
 
@@ -99,8 +123,19 @@ $$
 ---
 
 ## Algorithm
+1. Initialize the Q-table with zeros and set the learning rate (α), discount factor (γ), and epsilon values.
 
+2. Reset the FrozenLake environment and start a new episode.
 
+3. Select actions using the epsilon-greedy strategy to balance exploration and exploitation.
+
+4. Generate a complete episode until the goal, failure, or maximum number of steps is reached.
+
+5. Calculate the return (G) backward from the end of the episode using the discount factor γ.
+
+6. Update the Q-value for each first-visited state-action pair using Q(s,a) = Q(s,a) + α[G − Q(s,a)].
+
+7. Repeat the process for all episodes, keeping epsilon fixed or gradually decreasing it, and finally extract the greedy policy and evaluate the learning performance.
 
 ## Python Program
 
@@ -482,7 +517,17 @@ Variable Epsilon:
 ## Result
 ```text
 
+The Monte Carlo Control algorithm was implemented on the FrozenLake-v1 environment using both Fixed Epsilon and Variable/Decaying Epsilon strategies.
 
+For Fixed Epsilon (ε = 0.9):
+- Average reward over the last 1000 episodes: 0.0330
+- Success rate over the last 1000 episodes: 3.30%
+
+For Variable Epsilon (ε = 1.0 → 0.05):
+- Average reward over the last 1000 episodes: 0.9380
+- Success rate over the last 1000 episodes: 93.80%
+
+The learning curve shows that the Variable Epsilon strategy gradually improves during training and reaches an average reward of approximately 0.9 or higher, while the Fixed Epsilon strategy remains at a much lower reward level. The final Q-table and state-value function also show that the Variable Epsilon strategy learns significantly better state-action values.
 
 ```
 ---
@@ -490,6 +535,13 @@ Variable Epsilon:
 ## Inference
 ```text
 
+The results demonstrate that Variable/Decaying Epsilon performs significantly better than Fixed Epsilon for Monte Carlo Control in the FrozenLake environment.
+
+The Fixed Epsilon strategy maintains a high exploration level throughout training, which prevents the agent from sufficiently exploiting the learned optimal actions. This results in a low success rate of only 3.30%.
+
+In contrast, the Variable Epsilon strategy starts with high exploration and gradually reduces epsilon from 1.0 to 0.05. This allows the agent to explore different actions during the early stages and increasingly exploit the learned policy during later stages.
+
+Therefore, the Variable/Decaying Epsilon strategy provides a better balance between exploration and exploitation and achieves a much higher success rate of 93.80%. Hence, for this experiment, Variable Epsilon is more effective than Fixed Epsilon for learning an optimal policy using Monte Carlo Control.
 
 
 ```
