@@ -515,7 +515,7 @@ Variable Epsilon:
 ---
 
 ## Result
-```text
+
 
 The Monte Carlo Control algorithm was implemented on the FrozenLake-v1 environment using both Fixed Epsilon and Variable/Decaying Epsilon strategies.
 
@@ -529,11 +529,11 @@ For Variable Epsilon (ε = 1.0 → 0.05):
 
 The learning curve shows that the Variable Epsilon strategy gradually improves during training and reaches an average reward of approximately 0.9 or higher, while the Fixed Epsilon strategy remains at a much lower reward level. The final Q-table and state-value function also show that the Variable Epsilon strategy learns significantly better state-action values.
 
-```
+
 ---
 
 ## Inference
-```text
+
 
 The results demonstrate that Variable/Decaying Epsilon performs significantly better than Fixed Epsilon for Monte Carlo Control in the FrozenLake environment.
 
@@ -544,7 +544,7 @@ In contrast, the Variable Epsilon strategy starts with high exploration and grad
 Therefore, the Variable/Decaying Epsilon strategy provides a better balance between exploration and exploitation and achieves a much higher success rate of 93.80%. Hence, for this experiment, Variable Epsilon is more effective than Fixed Epsilon for learning an optimal policy using Monte Carlo Control.
 
 
-```
+
 
 
 
